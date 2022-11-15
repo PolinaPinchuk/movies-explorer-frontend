@@ -13,9 +13,9 @@ const MoviesCard = ({ card }) => {
 
     return (
         <li className="moviesCard">
-            <img src={card.image} alt={card.title} className="moviesCard__image"></img>
             <div className="moviesCard__element">
                 <p className="moviesCard__title">{card.title}</p>
+                <p className="moviesCard__duration">{card.duration}</p>
                 <div className="moviesCard__buttons">
                     {pathname === "/saved-movies" ? (
                         <button type="button" className="moviesCard__button moviesCard__button_delete" />
@@ -24,7 +24,7 @@ const MoviesCard = ({ card }) => {
                     )}
                 </div>
             </div>
-            <p className="moviesCard__duration">{card.duration}</p>
+            <img src={card.image} alt={card.title} className="moviesCard__image"></img>
         </li>
     );
 };

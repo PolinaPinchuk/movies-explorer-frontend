@@ -48,8 +48,9 @@
   width: 100%;
   height: 45px;
   border-radius: 3px;
-  background-color: black;
+  background-color: #3456F3;
   color: white;
+  border: none;
 }
 
 .register__box {

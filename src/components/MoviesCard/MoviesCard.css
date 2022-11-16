@@ -29,6 +29,7 @@
   border: none;
   height: 12px;
   width: 14px;
+  position: relative;
 }
 
 .moviesCard__button:hover {
@@ -90,5 +91,15 @@
   }
   .moviesCard__element {
     justify-content: space-between;
+  }
+  .moviesCard__title {
+    margin-top: 14px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .moviesCard__duration {
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 0;
   }
 }

@@ -87,20 +87,16 @@
 
 @media screen and (max-width: 767px) {
   .login {
-      margin-top: 232px;
+      display: flex;
+      flex-direction: column;
+      max-width: 260px;
+      margin-inline-start: 232px auto 0 auto;
   }
 }
 
 @media screen and (max-width: 320px) {
   .login {
-      display: flex;
-      flex-direction: column;
-      max-width: 260px;
-      margin-top: 56px;
-  }
-  .login__logo {
-      margin-left: auto;
-      margin-right: auto;
+      margin: 56px auto 0 auto;
   }
   .login__title {
       text-align: center;

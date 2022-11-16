@@ -31,19 +31,18 @@ function Navigation() {
                         </Link>
                     </li>
                     <li className="header-menu__link-container">
-                        <Link className="navigation__link" activeClassName="navigation__link_active" to="/movies">
+                        <Link className="navigation__link" to="/movies">
                             Фильмы
                         </Link>
                     </li>
                     <li className="header-menu__link-container">
-                        <Link className="navigation__link" activeClassName="navigation__link_active" to="/saved-movies">
+                        <Link className="navigation__link" to="/saved-movies">
                             Сохраненные фильмы
                         </Link>
                     </li>
                 </ul>
 
                 <Link to="/profile" className="navigation__link navigation__link_type_profile">
-                    Аккаунт
                 </Link>
             </div>
         </div>

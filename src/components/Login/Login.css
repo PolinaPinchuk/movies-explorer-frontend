@@ -1,0 +1,116 @@
+.login {
+  font-family: Inter, Arial, sans-serif;
+  max-width: 396px;
+  margin: 70px auto 0 auto;
+}
+.login__logo {
+  height: 38px;
+  width: 38px;
+}
+.login__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px 0 40px 0;
+}
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 10px;
+  color: rgba(160, 160, 160, 1);
+}
+
+.login__input {
+  border: none;
+  outline: none;
+  background-color: rgba(249, 249, 249, 1);
+  border-radius: 8px;
+  height: 46px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.login__error {
+  width: 100%;
+  height: 10px;
+  color: rgba(255, 64, 98, 1);
+  margin: 5px 0 5px 0;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.login__button {
+  margin-top: 179px;
+  width: 100%;
+  height: 45px;
+  border-radius: 3px;
+  background-color: #3456F3;
+  color: white;
+  border: none;
+}
+.login__bottom-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.login__bottom-box_question {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #a0a0a0;
+  margin: 0;
+}
+.login__bottom-box_link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+  color: black;
+  margin: 0 0 0 6px;
+}
+
+@media screen and (max-width: 767px) {
+  .login {
+      display: flex;
+      flex-direction: column;
+      max-width: 260px;
+      margin-inline-start: 232px auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .login {
+      margin: 56px auto 0 auto;
+  }
+  .login__title {
+      text-align: center;
+      margin-bottom: 80px;
+  }
+  .login__button {
+      margin-top: 267px;
+  }
+  .login__bottom-box_question {
+      font-size: 12px;
+      line-height: 15px;
+  }
+  .login__bottom-box_link {
+      font-size: 12px;
+      line-height: 15px;
+  }
+}

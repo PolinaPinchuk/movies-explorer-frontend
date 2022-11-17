@@ -1,0 +1,105 @@
+.moviesCard {
+  font-family: Inter, Arial, sans-serif;
+  height: 134px;
+  width: 1140px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 40px auto;
+}
+.moviesCard__element {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin: 0 0 0 22px;
+}
+.moviesCard__image {
+  width: 220px;
+  height: 122px;
+  margin: auto 6px auto 0;
+}
+.moviesCard__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 22px 0 13px 0;
+}
+.moviesCard__button {
+  border: none;
+  height: 12px;
+  width: 14px;
+  position: relative;
+}
+
+.moviesCard__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.moviesCard__button_inactive {
+  background: #f9f9f9 url(../../images/3.svg) center no-repeat;
+  margin: 4px 0 0;
+}
+
+.moviesCard__button_active {
+  background: #f9f9f9 url(../../images/4.svg) center no-repeat;
+  margin: 4px 0 0;
+}
+
+.moviesCard__button_delete {
+  width: 16px;
+  height: 16px;
+}
+
+.moviesCard__button_delete:hover {
+  background: #f9f9f9 url(../../images/5.svg) center no-repeat;
+}
+.moviesCard__duration {
+  color: #a0a0a0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  margin: 0 0 30px 0;
+}
+@media screen and (max-width: 1279px) {
+  .moviesCard {
+      width: 708px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .moviesCard {
+    display: grid;
+    width: 300px;
+    height: 232px;
+    grid-template-columns: 2fr;
+    grid-template-rows: 168px 29px 35px;
+    box-sizing: border-box;
+  }
+  .moviesCard__image {
+    width: 300px;
+    height: 168px;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .moviesCard__button {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  .moviesCard__element {
+    justify-content: space-between;
+  }
+  .moviesCard__title {
+    margin-top: 14px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .moviesCard__duration {
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+}

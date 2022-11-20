@@ -43,6 +43,10 @@
   color: black;
 }
 
+.register__form_input_type_error {
+  color: #ee3465;
+}
+
 .register__button {
   margin-top: 69px;
   width: 100%;
@@ -51,6 +55,13 @@
   background-color: #3456F3;
   color: white;
   border: none;
+  cursor: pointer;
+}
+
+.register__button_type_disable {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
 }
 
 .register__box {
@@ -91,6 +102,31 @@
 
 .register__form_error-none {
   color: transparent;
+  /* user-select: none; */
+}
+
+.register__submitError {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ee3465;
+}
+
+.link-opacity {
+  transition: opacity 0.4s;
+  cursor: pointer;
+}
+
+.link-opacity:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 767px) {

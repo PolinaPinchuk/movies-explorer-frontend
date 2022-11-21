@@ -1,125 +1,101 @@
-// export const BASE_URL = "https://api.polina.movies.nomoredomains.icu";
-class MainApi {
-    constructor({ baseUrl, headers }) {
-        this._headers = headers;
-        this._baseUrl = baseUrl;
-    }
+export const BASE_URL = "https://api.polina.movies.nomoredomains.icu";
+export const BEATFILM_URL = "https://api.nomoreparties.co";
 
-    _checkResponse(res) {
-        if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-    }
-
-    getSavedMovies() {
-        return fetch(`${this._baseUrl}/movies`, {
-            headers: {
-                Authorization: getToken(),
-                "Content-Type": "application/json",
-            },
-        }).then(this._checkResponse);
-    }
-    getUserInfo() {
-        return fetch(`${this._baseUrl}/users/me`, {
-            headers: {
-                Authorization: getToken(),
-                "Content-Type": "application/json",
-            },
-        }).then(this._checkResponse);
-    }
-    patchUserInfo(userName, userEmail) {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: "PATCH",
-            headers: {
-                Authorization: getToken(),
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: userName,
-                email: userEmail,
-            }),
-        }).then(this._checkResponse);
-    }
-    saveMovie(nameRU, nameEN, country, director, duration, year, description, image, trailer, thumbnail, movieId) {
-        return fetch(`${this._baseUrl}/movies`, {
-            method: "POST",
-            headers: {
-                Authorization: getToken(),
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                nameRU: nameRU,
-                nameEN: nameEN,
-                country: country,
-                director: director,
-                duration: duration,
-                year: year,
-                description: description,
-                image: image,
-                trailer: trailer,
-                thumbnail: thumbnail,
-                movieId: movieId,
-            }),
-        }).then(this._checkResponse);
-    }
-    deleteSaveMovie(id) {
-        return fetch(`${this._baseUrl}/movies/${id}`, {
-            method: "DELETE",
-            headers: {
-                Authorization: getToken(),
-                "Content-Type": "application/json",
-            },
-        });
-    }
-
-    register = (name, email, password) => {
-        return fetch(`${this._baseUrl}/signup`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password,
-            }),
-        }).then(this._checkResponse);
-    };
-
-    authorize = (email, password) => {
-        return fetch(`${this._baseUrl}/signin`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                password: `${password}`,
-                email: `${email}`,
-            }),
-        }).then(this._checkResponse);
-    };
-    checkToken() {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: "GET",
-            headers: {
-                Authorization: getToken(),
-                "Content-Type": "application/json",
-            },
-        }).then(this._checkResponse);
-    }
-}
+const checkResponse = (response) => (response.ok ? response.json() : Promise.reject("Ошибка на сервере: " + response.status + " - " + response.statusText));
 const getToken = () => {
     return `Bearer ${localStorage.getItem("jwt")}`;
 };
-// export const mainApi = new MainApi({
-//     baseUrl: BASE_URL,
-// });
-const mainApi = new MainApi({
-    baseUrl: 'https://api.polina.movies.nomoredomains.icu',
-    // headers: {
-    //     'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-    //     'Content-Type': 'application/json',
-    // },
-});
-export default mainApi;
+
+export const getSavedMovies = () => {
+    return fetch(`${BASE_URL}/movies`, {
+        method: "GET",
+        headers: {
+            Authorization: getToken(),
+            "Content-Type": "application/json",
+        },
+    }).then(checkResponse);
+};
+
+export const getUserInfo = () => {
+    return fetch(`${BASE_URL}/users/me`, {
+        method: "GET",
+        headers: {
+            Authorization: getToken(),
+            "Content-Type": "application/json",
+        },
+    }).then(checkResponse);
+};
+
+export const patchUserInfo = (name, email) => {
+    return fetch(`${BASE_URL}/users/me`, {
+        method: "PATCH",
+        headers: {
+            Authorization: getToken(),
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            email,
+        }),
+    }).then(checkResponse);
+};
+
+export const saveMovie = (card) => {
+    return fetch(`${BASE_URL}/movies`, {
+        method: "POST",
+        headers: {
+            Authorization: getToken(),
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nameRU: card.nameRU,
+            nameEN: card.nameEN || "",
+            country: card.country || "",
+            director: card.director,
+            duration: card.duration,
+            year: card.year,
+            description: card.description,
+            image: `${BEATFILM_URL + card.image.url}`,
+            trailer: card.trailer,
+            thumbnail: `https://api.nomoreparties.co/${card.image.formats.thumbnail.url}`,
+            movieId: card.movieId,
+        }),
+    }).then(checkResponse);
+};
+
+export const deleteSaveMovie = (cardId) => {
+    return fetch(`${BASE_URL}/movies/${cardId}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: getToken(),
+            "Content-Type": "application/json",
+        },
+    }).then(checkResponse);
+};
+
+export const register = (name, email, password) => {
+    return fetch(`${BASE_URL}/signup`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            email,
+            password,
+        }),
+    }).then(checkResponse);
+};
+
+export const authorize = (email, password) => {
+    return fetch(`${BASE_URL}/signin`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email,
+            password,
+        }),
+    }).then(checkResponse);
+};

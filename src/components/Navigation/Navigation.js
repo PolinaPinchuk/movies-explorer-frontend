@@ -1,15 +1,16 @@
 import menu from "../../images/6.svg";
 import close from "../../images/7.svg";
 import "./Navigation.css";
-
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Navigation() {
     const [isNavigationClosed, setNavigationClosed] = useState(false);
+
     function openNavigation() {
         setNavigationClosed(false);
     }
+
     function closeNavigation() {
         setNavigationClosed(true);
     }
@@ -26,27 +27,26 @@ function Navigation() {
 
                 <ul className="header-menu__links">
                     <li className="header-menu__link-container header-menu__link-container_display">
-                        <Link className="navigation__link" to="/">
+                        <NavLink className="navigation__link" to="/">
                             Главная
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="header-menu__link-container">
-                        <Link className="navigation__link" to="/movies">
+                        <NavLink className="navigation__link" to="/movies">
                             Фильмы
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="header-menu__link-container">
-                        <Link className="navigation__link" to="/saved-movies">
+                        <NavLink className="navigation__link" to="/saved-movies">
                             Сохраненные фильмы
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
 
-                <Link to="/profile" className="navigation__link navigation__link_type_profile">
-                </Link>
+                <NavLink to="/profile" className="navigation__link navigation__link_type_profile"></NavLink>
             </div>
         </div>
     );
-};
+}
 
 export default Navigation;

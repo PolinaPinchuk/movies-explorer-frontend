@@ -8,7 +8,7 @@ function FilterCheckbox(props) {
     const onValueChange = () => {
       onChange(checkboxRef.current.checked);
     };
-    return <input type="checkbox" className="filterCheckbox"ref={checkboxRef} defaultChecked={defaultValue} onChange={onValueChange}></input>;
+    return <input type="checkbox" className="filterCheckbox" ref={checkboxRef} defaultChecked={defaultValue} onChange={onValueChange}></input>;
 }
 
 export default FilterCheckbox;

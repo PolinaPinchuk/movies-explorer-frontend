@@ -23,8 +23,9 @@
 
 .profile__data {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     row-gap: 2px;
 }
 
@@ -80,7 +81,7 @@
     padding: 0;
     outline: none;
     border: none;
-    text-align: end;
+    /* text-align: end; */
     font-size: 11px;
     line-height: 13px;
     font-weight: 400;
@@ -122,6 +123,49 @@
 .profile__exit:hover {
     opacity: 0.6;
     cursor: pointer;
+}
+
+.profile__setting_type_error {
+    color: #ee3465;
+}
+
+.link-opacity {
+    transition: opacity 0.4s;
+    cursor: pointer;
+}
+
+.link-opacity:hover {
+    opacity: 0.7;
+}
+
+.profile__successMessage {
+    margin: 0 auto 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    background-color: #202020;
+    color: #228cbb;
+    border: none;
+}
+
+.profile__saveContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__error-text {
+    margin: 10px 0 0 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ee3465;
+}
+
+.profile__error-text_type_disabled {
+    user-select: none;
 }
 
 @media all and (max-width: 767px) {

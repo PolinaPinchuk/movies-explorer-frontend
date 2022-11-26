@@ -2,6 +2,7 @@ import "./Movies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
+import Further from "../Further/Further";
 import { useEffect, useRef, useState } from "react";
 import { apiUrl, fetchMovies } from "../../utils/MoviesApi";
 
@@ -18,14 +19,14 @@ const localStorageKeys = {
 };
 
 function Movies(props) {
-    const { savedMovies, handleSaveMovie, handleDeleteMovie, loggedIn } = props;
+    const { savedMovies, handleSaveFilm, handleDeleteFilm, loggedIn } = props;
     const [showPreloader, setShowPreloader] = useState(false);
     const loadingDisplayRef = useRef(getLoadingDisplay(window.innerWidth));
     const [movies, setMovies] = useState(null);
     const [visibleCount, setVisibleCount] = useState(loadingDisplayRef.current.defaultCount);
     const [errorMessage, setErrorMessage] = useState(null);
     const [searchValue, setSearchValue] = useState(localStorage.getItem(localStorageKeys.search) || "");
-    const [shortMoviesOnly, setShortMoviesOnly] = useState(JSON.parse(localStorage.getItem(localStorageKeys.shortMovie) || "false") || false);
+    const [shortFilmsOnly, setshortFilmsOnly] = useState(JSON.parse(localStorage.getItem(localStorageKeys.shortMovie) || "false") || false);
     const isLoadingRef = useRef(false);
 
     const onSearchImpl = async () => {
@@ -47,7 +48,7 @@ function Movies(props) {
             setErrorMessage(null);
 
             const movies = await fetchMovies();
-            const foundMovies = movies.filter((x) => !shortMoviesOnly || x.duration <= 40).filter((x) => x.nameRU.toLowerCase().includes(searchValue.toLowerCase()));
+            const foundMovies = movies.filter((x) => !shortFilmsOnly || x.duration <= 40).filter((x) => x.nameRU.toLowerCase().includes(searchValue.toLowerCase()));
 
             if (foundMovies.length === 0) {
                 setErrorMessage("Ничего не найдено");
@@ -96,9 +97,9 @@ function Movies(props) {
     }, [searchValue]);
 
     useEffect(() => {
-        localStorage.setItem(localStorageKeys.shortMovie, JSON.stringify(shortMoviesOnly));
+        localStorage.setItem(localStorageKeys.shortMovie, JSON.stringify(shortFilmsOnly));
         onSearchImpl();
-    }, [shortMoviesOnly]);
+    }, [shortFilmsOnly]);
 
     useEffect(() => {
         setErrorMessage(null);
@@ -115,15 +116,15 @@ function Movies(props) {
                     }
                 }}
                 defaultValue={searchValue}
-                defaultShortMovieValue={shortMoviesOnly}
-                onShortMovieToggle={setShortMoviesOnly}
+                defaultShortFilmValue={shortFilmsOnly}
+                onShortFilmToggle={setshortFilmsOnly}
             />
             {movies && movies.length !== 0 ? (
                 <MoviesCardList
-                    handleSaveMovie={(movieId) => {
-                        handleSaveMovie(movies.find((m) => m.id === movieId));
+                    handleSaveFilm={(movieId) => {
+                        handleSaveFilm(movies.find((m) => m.id === movieId));
                     }}
-                    handleDeleteMovie={handleDeleteMovie}
+                    handleDeleteFilm={handleDeleteFilm}
                     movies={movies.slice(0, visibleCount).map((movie) => ({
                         nameRU: movie.nameRU,
                         duration: movie.duration,
@@ -136,6 +137,7 @@ function Movies(props) {
             ) : null}
             <span className="movies-errorMessage">{errorMessage}</span>
             {showPreloader ? <Preloader /> : null}
+            {movies && visibleCount < movies.length ? <Further onClick={() => setVisibleCount(visibleCount + loadingDisplayRef.current.loadMoreCount)} /> : null}
         </div>
     );
 }

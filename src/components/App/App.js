@@ -25,6 +25,14 @@ function App() {
     const [editProfile, setEditProfile] = useState(false);
     const [successEditProfile, setSuccessEditProfile] = useState(false);
 
+    const POPUP_MESSAGES = {
+        ERROR: {
+            REGISTER: 'Что-то пошло не так! Ошибка регистрации.',
+            LOGIN: 'Что-то пошло не так! Ошибка авторизации.',
+            PROFILE: 'Что-то пошло не так! Ошибка редактирования профиля.',
+        }
+    }
+
     useEffect(() => {
         if (loggedIn) {
             MainApi.getUserInfo()
@@ -44,7 +52,7 @@ function App() {
                 authorization(email, password);
             })
             .catch((err) => {
-                console.log(err);
+                setErrorMessage(POPUP_MESSAGES.ERROR.REGISTER);
             });
     }
 
@@ -60,7 +68,7 @@ function App() {
                 }
             })
             .catch((err) => {
-                setErrorMessage(err.message);
+                setErrorMessage(POPUP_MESSAGES.ERROR.LOGIN);
             })
             .finally(() => {
                 setShowPreloader(false);
@@ -74,7 +82,7 @@ function App() {
         MainApi.patchUserInfo(name, email)
             .then((response) => {
                 setCurrentUser(response);
-                setErrorMessage("");
+                setErrorMessage(POPUP_MESSAGES.ERROR.PROFILE);
                 setEditProfile(false);
                 setSuccessEditProfile(true);
             })
@@ -97,7 +105,7 @@ function App() {
         localStorage.removeItem("savedMoviesInputValue");
         localStorage.removeItem("token");
         localStorage.removeItem("lastSearch");
-        localStorage.removeItem("lastShortFilm");
+        localStorage.removeItem("lastShortMovie");
         setLoggedIn(false);
         setShowPreloader(false);
         navigate("/");

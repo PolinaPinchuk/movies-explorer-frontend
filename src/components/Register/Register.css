@@ -36,6 +36,7 @@
   background-color: rgba(249, 249, 249, 1);
   border-radius: 8px;
   height: 46px;
+  width: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -85,21 +86,6 @@
   user-select: none;
 }
 
-.register__submitError {
-  position: absolute;
-  width: 100%;
-  margin: 0;
-  top: -20px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 13px;
-  color: #ee3465;
-}
-
 .register__submit-button {
   height: 45px;
   font-style: normal;
@@ -140,22 +126,6 @@
 
 .register__form_error-none {
   color: transparent;
-  /* user-select: none; */
-}
-
-.register__submitError {
-  position: absolute;
-  width: 100%;
-  margin: 0;
-  top: -20px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 13px;
-  color: #ee3465;
 }
 
 .link-opacity {
@@ -166,7 +136,6 @@
 .link-opacity:hover {
   opacity: 0.7;
 }
-
 @media screen and (max-width: 767px) {
   .register {
       margin-top: 232px;

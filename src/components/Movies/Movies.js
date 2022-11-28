@@ -8,9 +8,17 @@ import { apiUrl, fetchMovies } from "../../utils/MoviesApi";
 
 function getLoadingDisplay(screenWidth) {
     if (screenWidth >= 1280) {
-        return { defaultCount: 7, loadMoreCount: 1 };
+      return { defaultCount: 7, loadMoreCount: 7 };
     }
-    return { defaultCount: 5, loadMoreCount: 1 };
+  
+    if (screenWidth >= 768) {
+      return { defaultCount: 7, loadMoreCount: 7 };
+    }
+  
+    if (screenWidth >= 320) {
+        return { defaultCount: 5, loadMoreCount: 5 };
+    }
+    return { defaultCount: 5, loadMoreCount: 5 };
 }
 
 const localStorageKeys = {
@@ -92,7 +100,7 @@ function Movies(props) {
 
     useEffect(() => {
         localStorage.setItem(localStorageKeys.search, searchValue);
-        setErrorMessage("Нужно ввести ключевое сssssлово");
+        setErrorMessage("Нужно ввести ключевое слово");
         onSearchImpl();
     }, [searchValue]);
 
@@ -116,7 +124,7 @@ function Movies(props) {
                     }
                 }}
                 defaultValue={searchValue}
-                defaultShortFilmValue={shortFilmsOnly}
+                defaultShortFilm={shortFilmsOnly}
                 onShortFilmToggle={setshortFilmsOnly}
             />
             {movies && movies.length !== 0 ? (

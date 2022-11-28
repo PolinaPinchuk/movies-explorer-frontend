@@ -6,7 +6,7 @@ import "./Profile.css";
 
 function Profile(props) {
     const currentUser = useContext(CurrentUserContext);
-    const { setEditProfile, handleUpdateUser, handleloggedOutClick, setSuccessEditProfile, editProfile, errorMesage, blockInput, successEditProfile, showPreloader } = props;
+    const { setEditProfile, handleUpdateUser, handleloggedOutClick, setSuccessEditProfile, editProfile, errorMessage, blockInput, successEditProfile, showPreloader } = props;
 
     const { values, handleChange, errors, isValid } = Validation();
 
@@ -81,7 +81,7 @@ function Profile(props) {
                             </button>
                         ) : (
                             <div className="profile__saveContainer">
-                                {errorMesage && <p className="profile__submitError">{errorMesage}</p>}
+                                {errorMessage && <p className="profile__submitError">{errorMessage}</p>}
                                 <button
                                     type="submit"
                                     className={`profile__button ${!isValid || (values.name === currentUser.name && values.email === currentUser.email) ? "profile__submit-button_type_disable" : "link-opacity"}`}
@@ -92,7 +92,7 @@ function Profile(props) {
                                 </button>
                             </div>
                         )}
-                        <button className="profile__exit link-opacity" onClick={handleloggedOutClick} type="submite">
+                        <button className="profile__exit_button link-opacity" onClick={handleloggedOutClick} type="submite">
                             Выйти из аккаунта
                         </button>
                     </div>

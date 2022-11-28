@@ -74,32 +74,53 @@
       display: grid;
       width: 300px;
       height: 232px;
-      grid-template-columns: 2fr;
-      grid-template-rows: 168px 29px 35px;
+      grid-template-rows: 168px 64px;
       box-sizing: border-box;
   }
   .moviesCard__image {
       width: 300px;
       height: 168px;
       grid-row: 1;
-      grid-column-start: 1;
-      grid-column-end: 2;
+      object-fit: cover;
+  }
+
+  .moviesCard__element {
+    grid-row: 2;
+    display: grid;
+          grid-template-columns: 2fr;
+          grid-template-rows: 2fr;
+          margin: 0;
+          padding: 0;
   }
   .moviesCard__button {
-      grid-row: 2;
+      grid-row: 1;
       grid-column: 2;
   }
-  .moviesCard__element {
-      justify-content: space-between;
-  }
   .moviesCard__title {
-      margin-top: 14px;
-      margin-bottom: 0;
+    grid-row: 1;
+    grid-column: 1;
+      margin: 14px 0 0 12px;
       padding: 0;
+      font-size: 12px;
   }
   .moviesCard__duration {
-      margin-top: 8px;
-      margin-bottom: 0;
+      margin: 8px 0 14px 12px;
       padding: 0;
+      grid-row: 2;
+      grid-column: 1;
+  }
+  .moviesCard__button_inactive {
+    margin: 16px 16px 0 0;
+    padding: 0;
+  }
+  
+  .moviesCard__button_active {
+    margin: 16px 16px 0 0;
+    padding: 0;
+  }
+  
+  .moviesCard__button_delete {
+    width: 14px;
+    height: 12px;
   }
 }

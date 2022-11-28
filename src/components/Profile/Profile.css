@@ -109,7 +109,7 @@
     opacity: 0.2;
 }
 
-.profile__exit {
+.profile__exit_button {
     border: none;
     background-color: transparent;
     color: #ff4062;
@@ -120,7 +120,7 @@
     transition: opacity 0.2s linear;
 }
 
-.profile__exit:hover {
+.profile__exit_button:hover {
     opacity: 0.6;
     cursor: pointer;
 }

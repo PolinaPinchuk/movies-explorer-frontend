@@ -1,0 +1,44 @@
+.further {
+    font-family: Inter, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 166px;
+    background-color: #fff;
+}
+
+.further__button {
+    margin: 10px auto 80px;
+    width: 320px;
+    height: 36px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: none;
+}
+
+.further__button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.further__link {
+    margin: 0;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 36px;
+    color: #2f2f2f;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1279px) {
+    .further__button {
+        margin: 50px 30px 80px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .further__button {
+        margin: 50px 10px 80px;
+    }
+}

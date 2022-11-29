@@ -7,25 +7,3 @@
   margin: 0 0 40px 0;
   padding: 0;
 }
-.moviesCardList__button-container {
-  max-width: 320px;
-  margin: 10px auto;
-  padding: 50px 0 39px;
-}
-
-.moviesCardList__button {
-  width: 100%;
-  padding: 10px 0 9px 0;
-  outline: none;
-  border: 1px solid #e8e8e8;
-  background-color: white;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  transition: opacity 0.2s linear;
-}
-
-.moviesCardList__button:hover {
-  opacity: 0.6;
-  cursor: pointer;
-}

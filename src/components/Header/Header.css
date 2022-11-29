@@ -3,15 +3,14 @@
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #073042;
-  color: #fff;
+  background-color:#fff;
   justify-content: space-between;
   padding: 18px 70px;
   user-select: none;
 }
 
 .header_type_auth {
-  background-color: #FFFFFF;
+  background-color: #073042;
 }
 
 .header__logo {

@@ -41,6 +41,10 @@
   color: #000000;
 }
 
+.login__input_type_error {
+  color: #ee3465;
+}
+
 .login__error {
   width: 100%;
   height: 10px;
@@ -51,15 +55,26 @@
   line-height: 12px;
 }
 
+.login__error_type_disabled {
+  user-select: none;
+}
+
 .login__button {
   margin-top: 179px;
   width: 100%;
   height: 45px;
   border-radius: 3px;
-  background-color: #3456F3;
+  background-color: #3456f3;
   color: white;
   border: none;
 }
+
+.login__button_type_disable {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
+}
+
 .login__bottom-box {
   display: flex;
   align-items: center;
@@ -83,6 +98,15 @@
   text-decoration: none;
   color: black;
   margin: 0 0 0 6px;
+}
+
+.link-opacity {
+  transition: opacity 0.4s;
+  cursor: pointer;
+}
+
+.link-opacity:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 767px) {

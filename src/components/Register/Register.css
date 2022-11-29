@@ -36,6 +36,7 @@
   background-color: rgba(249, 249, 249, 1);
   border-radius: 8px;
   height: 46px;
+  width: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -43,56 +44,98 @@
   color: black;
 }
 
+.register__form_input_type_error {
+  color: #ee3465;
+}
+
 .register__button {
-  margin-top: 69px;
-  width: 100%;
   height: 45px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: #4285f4;
+  color: #fff;
   border-radius: 3px;
-  background-color: #3456F3;
-  color: white;
   border: none;
 }
 
-.register__box {
-  display: flex;
-  margin-top: 16px;
-  align-items: center;
-  justify-content: center;
+.register__button_type_disable {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
 }
 
-.register__box_question {
+.register__error-text {
+  margin: 10px 0 0 0;
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #a0a0a0;
-  margin: 0;
-}
-
-.register__box_enter {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: black;
-  text-decoration: none;
-  margin: 0 0 0 6px;
-}
-
-.register__form_error {
-  width: 100%;
-  height: 10px;
-  color: rgba(255, 64, 98, 1);
-  margin: 5px 0 5px 0;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 10px;
   line-height: 12px;
+  color: #ee3465;
+}
+
+.register__error-text_type_disabled {
+  user-select: none;
+}
+
+.register__submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  user-select: none;
+}
+
+.register__submit-button {
+  height: 45px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: #4285f4;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+}
+
+.register__submit-button_type_disable {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+}
+
+.register__reg-question {
+  margin: 16px auto 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8b8b8b;
+}
+
+.register__link {
+  margin-left: 6px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: #f8f8f8;
+  color: #202020;
+  border: none;
+  text-decoration: none;
 }
 
 .register__form_error-none {
   color: transparent;
 }
 
+.link-opacity {
+  transition: opacity 0.4s;
+  cursor: pointer;
+}
+
+.link-opacity:hover {
+  opacity: 0.7;
+}
 @media screen and (max-width: 767px) {
   .register {
       margin-top: 232px;
